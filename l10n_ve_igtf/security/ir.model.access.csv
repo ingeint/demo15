@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_ingein_config_igtf',ingein_config_igtf,model_ingein_config_igtf,base.group_user,1,1,1,1
