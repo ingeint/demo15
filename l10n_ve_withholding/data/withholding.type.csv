@@ -1,5 +1,0 @@
-id,name,is_sale,use_company_taxpayer_type,use_part_taxpayer_type,use_withholding_Category,use_product_tax_category,journal_id/id,company_id/id
-1,RETENCION IVA VENTAS,1,1,1,False,False,withholding_odoo.account_journal_1,base.main_company
-2,RETENCION IVA COMPRA,0,1,1,False,False,withholding_odoo.account_journal_1,base.main_company
-3,RETENCION RENTA VENTA,1,1,1,True,False,withholding_odoo.account_journal_1,base.main_company
-4,RETENCION RENTA COMPRA,0,1,1,True,False,withholding_odoo.account_journal_1,base.main_company
