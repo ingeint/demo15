@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ingeint_config_igtf_form_view" model="ir.ui.view">
+            <field name="name">ingeint.config.igtf.form</field>
+            <field name="model">ingein.config.igtf</field>
+            <field name="arch" type="xml">
+                <form string="Config IGTF">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="company_id"/>
+                            </group>
+                            <group>
+                                <field name="percent_igtf"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ingeint_config_igtf_tree_view" model="ir.ui.view">
+            <field name="name">ingeint.config.igtf.tree</field>
+            <field name="model">ingein.config.igtf</field>
+            <field name="arch" type="xml">
+                <tree string="Config IGTF">
+                    <field name="company_id"/>
+                    <field name="percent_igtf"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="ingeint_config_igtf_act_window" model="ir.actions.act_window">
+            <field name="name">Ingeint.Config.IGTF</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ingein.config.igtf</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Config IGTF" id="config_igtf_menu" parent="account.root_payment_menu" action="ingeint_config_igtf_act_window"/>
+
+    </data>
+</odoo>

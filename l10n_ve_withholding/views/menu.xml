@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Top Menu-->
+
+        <record id="Menu_root_Withholdings" model="ir.ui.menu">
+            <field name="action" eval="False"/>
+            <field name="active" eval="True"/>
+            <field name="groups_id" eval="[(6, 0, [])]"/>
+            <field name="name">Withholdings</field>
+            <field name="parent_id" eval="False"/>
+            <field name="sequence">10</field>
+            <field name="web_icon">fa fa-pencil-square-o,#FFFFFF,#34495e</field>
+        </record>
+
+         <!--Menu Category-->
+
+        <menuitem name="Type Withholding" id="Withholding_menu" parent="Menu_root_Withholdings"/>
+
+        <menuitem name="Register Data" id="Register_menu" parent="Menu_root_Withholdings"/>
+
+        <!--Menu actions-->
+
+        <menuitem name="Type Withholding" id="type_withoulding_menu" parent="Withholding_menu" action="type_withholding_act_window"/>
+        <menuitem name="Create Types Withholding" id="create_type_wh_menu" parent="Withholding_menu" action="create_type_wh_act_window"/>
+        <menuitem name="CIIU" id="CIUU_menu" parent="Register_menu" action="CIUU_act_window"/>
+        <menuitem name="Withholding Category" id="with_cat_menu" parent="Register_menu" action="withoulding_act_window"/>
+        <menuitem name="Withholding Sequence" id="with_seq_menu" parent="Register_menu" action="withholding_sequence_act_window"/>
+
+    </data>
+</odoo>

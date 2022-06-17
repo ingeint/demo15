@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="account_journal_form_inherit" model="ir.ui.view">
+            <field name="name">account_journal.form</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='default_account_id']" position="after">
+                    <field name="generate_withholdings"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

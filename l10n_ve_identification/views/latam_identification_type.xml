@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ingeint_l10n_ve_form_inherit" model="ir.ui.view">
+            <field name="name">ingeint_l10n_ve.form</field>
+            <field name="model">l10n_latam.identification.type</field>
+            <field name="inherit_id" ref="l10n_latam_base.view_l10n_latam_identification_type_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="code" required="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

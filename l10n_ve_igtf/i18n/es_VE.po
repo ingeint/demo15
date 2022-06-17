@@ -1,0 +1,115 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ve_igtf
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-13 03:07+0000\n"
+"PO-Revision-Date: 2022-06-13 03:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment__amount_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment_register__amount_igtf
+msgid "Amount Igtf"
+msgstr "Monto IGTF"
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_ingein_config_igtf__company_id
+msgid "Company"
+msgstr "Compañia"
+
+#. module: l10n_ve_igtf
+#: model:ir.ui.menu,name:l10n_ve_igtf.config_igtf_menu
+#: model_terms:ir.ui.view,arch_db:l10n_ve_igtf.ingeint_config_igtf_form_view
+#: model_terms:ir.ui.view,arch_db:l10n_ve_igtf.ingeint_config_igtf_tree_view
+msgid "Config IGTF"
+msgstr "Configuracion IGTF"
+
+#. module: l10n_ve_igtf
+#: model:ir.model,name:l10n_ve_igtf.model_ingein_config_igtf
+msgid "Configuration IGTF"
+msgstr "Configuracion IGTF"
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_ingein_config_igtf__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_ingein_config_igtf__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_ve_igtf
+#: model:ir.model,name:l10n_ve_igtf.model_account_payment
+#: model:ir.model,name:l10n_ve_igtf.model_account_payment_register
+msgid "Description"
+msgstr "Descripcion"
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment__display_name
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment_register__display_name
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_ingein_config_igtf__display_name
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment__generate_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment_register__generate_igtf
+msgid "Generate Igtf"
+msgstr "Generar IGTF"
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment__id
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment_register__id
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_ingein_config_igtf__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_ve_igtf
+#: model:ir.actions.act_window,name:l10n_ve_igtf.ingeint_config_igtf_act_window
+msgid "Ingeint.Config.IGTF"
+msgstr "Configuracion IGTF"
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment____last_update
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment_register____last_update
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_ingein_config_igtf____last_update
+msgid "Last Modified on"
+msgstr "Modificada por última vez"
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_ingein_config_igtf__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_ingein_config_igtf__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_ingein_config_igtf__name
+#: model_terms:ir.ui.view,arch_db:l10n_ve_igtf.ingeint_config_igtf_form_view
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment__payment_reference_id
+msgid "Payment Reference"
+msgstr "Pago Relacionado"
+
+#. module: l10n_ve_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment__percent_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_account_payment_register__percent_igtf
+#: model:ir.model.fields,field_description:l10n_ve_igtf.field_ingein_config_igtf__percent_igtf
+msgid "Percent Igtf"
+msgstr "Porcentaje IGTF"

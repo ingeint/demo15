@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!-- Type -->
+        <record id="type_wh_1" model="withholding.type">
+            <field name="company_id" ref="base.main_company" />
+            <field name="name">RETENCION IVA VENTAS</field>
+            <field name="is_sale">True</field>
+            <field name="use_company_taxpayer_type">True</field>
+            <field name="use_part_taxpayer_type">True</field>
+        </record>
+<!-- Cal -->
+        <record id="rule_calc_1" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_1" />
+            <field name="name">RETENCION IVA BIENES 10%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.saleiva5"/>
+            <field name="tax_id" ref="l10n_ec_acc.retSaleIVA1"/>
+        </record>
+        <record id="rule_calc_2" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_1" />
+            <field name="name">RETENCION IVA BIENES 100%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.saleiva5"/>
+            <field name="tax_id" ref="l10n_ec_acc.retSaleIVA5"/>
+        </record>
+
+        <record id="rule_calc_3" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_1" />
+            <field name="name">RETENCION IVA BIENES 30%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.saleiva6"/>
+            <field name="tax_id" ref="l10n_ec_acc.retSaleIVA2"/>
+        </record>
+        <record id="rule_calc_4" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_1" />
+            <field name="name">RETENCION IVA SERVICIO 20%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.saleiva6"/>
+            <field name="tax_id" ref="l10n_ec_acc.retSaleIVA2"/>
+        </record>
+        <record id="rule_calc_5" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_1" />
+            <field name="name">RETENCION IVA SERVICIO 70%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.saleiva6"/>
+            <field name="tax_id" ref="l10n_ec_acc.retSaleIVA4"/>
+        </record>
+        <record id="rule_calc_6" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_1" />
+            <field name="name">RETENCION IVA SERVICIO 100%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.saleiva6"/>
+            <field name="tax_id" ref="l10n_ec_acc.retSaleIVA5"/>
+        </record>
+        <record id="rule_calc_7" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_1" />
+            <field name="name">RETENCION LIQUIDACION DE COMPRA 100%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.saleiva6"/>
+            <field name="tax_id" ref="l10n_ec_acc.retSaleIVA5"/>
+        </record>
+        <record id="rule_calc_8" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_1" />
+            <field name="name">RETENCION HONORARIOS PROFESIONALES 100%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.saleiva6"/>
+            <field name="tax_id" ref="l10n_ec_acc.retSaleIVA5"/>
+        </record>
+<!-- Rule -->
+            <record id="rule_v_1" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_1" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Contribuyente / Contribuyente</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_04"/>
+            </record>
+
+            <record id="rule_v_2" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_2" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Exportador / Contribuyente </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_04"/>
+            </record>
+
+            <record id="rule_v_3" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_2" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Exportador / P Natural </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_v_4" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_2" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Exportador / P Natural </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_v_4" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_2" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Exportador / Sociedad </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_v_5" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_2" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Exportador / P Natural Obligada </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_v_6" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_3" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Contribuyente / Sociedad </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_v_7" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_3" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Contribuyente / P Natural Obligada </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_v_8" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_3" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Contribuyente / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_v_9" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_3" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sector Publico / Sociedad </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_v_10" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_3" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sector Publico / P Natural Obligada</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_v_11" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_3" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sector Publico / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_v_12" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_3" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Seguro / Sociedad</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_v_13" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_3" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Seguro / P Natural  Obligada</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_v_14" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_3" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Seguro / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_v_15" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_4" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Contribuyente / Contribuyente </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_04"/>
+            </record>
+
+            <record id="rule_v_16" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_5" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Contribuyente / Sociedad </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_v_17" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_5" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Contribuyente / P Natural Obligada </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_v_18" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_5" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Contribuyente / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_v_19" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_5" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sector Publico / Sociedad</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_v_20" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_5" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sector Publico / P Natural Obligada</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_v_21" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_5" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sector Publico / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_v_22" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_5" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Seguro / Sociedad</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_v_23" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_5" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Seguro / P Natural Obligada</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_v_24" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_5" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Seguro / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_v_25" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_5" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sociedad / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_02"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_v_26" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_5" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">P Natural Obligada / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_03"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_27" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_3" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">P Natural Obligada / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_03"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_28" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_6" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Exportador / Contribuyente</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_04"/>
+            </record>
+            <record id="rule_v_29" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_6" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Exportador / Sociedad</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+            <record id="rule_v_30" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_6" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Exportador / P Natural Obligado</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+            <record id="rule_v_31" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_6" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Exportador / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_32" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Contribuyente / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_33" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sector Publica / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_34" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Seguro / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_35" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Exportador / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_36" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sociedad / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_02"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_37" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">P Natural Obligada / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_03"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_38" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">P Natural / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_01"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+                    <record id="rule_v_39" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Contribuyente / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_40" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sector Publica / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_41" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Seguro / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_42" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Exportador / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_43" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sociedad / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_02"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_44" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_7" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">P Natural Obligada / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_03"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_v_45" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_8" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Contribuyente / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_46" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_8" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sector Publica / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_47" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_8" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Seguro / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_48" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_8" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Exportador / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_49" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_8" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">Sociedad / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_02"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_v_50" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_8" />
+                <field name="withholding_id" ref="type_wh_1" />
+                <field name="name">P Natural Obligada / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_03"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+<!--- Compra -->
+
+        <!-- Type -->
+        <record id="type_wh_2" model="withholding.type">
+            <field name="company_id" ref="base.main_company" />
+            <field name="name">RETENCION IVA COMPRA</field>
+            <field name="is_sale">False</field>
+            <field name="use_company_taxpayer_type">True</field>
+            <field name="use_part_taxpayer_type">True</field>
+        </record>
+<!-- Cal -->
+        <record id="rule_calc_p_1" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_2" />
+            <field name="name">RETENCION IVA BIENES 10%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.purchaseiva5"/>
+            <field name="tax_id" ref="l10n_ec_acc.retpurchaseiva1"/>
+        </record>
+        <record id="rule_calc_p_2" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_2" />
+            <field name="name">RETENCION IVA BIENES 100%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.purchaseiva5"/>
+            <field name="tax_id" ref="l10n_ec_acc.retpurchaseiva5"/>
+        </record>
+
+        <record id="rule_calc_p_3" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_2" />
+            <field name="name">RETENCION IVA BIENES 30%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.purchaseiva6"/>
+            <field name="tax_id" ref="l10n_ec_acc.retpurchaseiva2"/>
+        </record>
+        <record id="rule_calc_p_4" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_2" />
+            <field name="name">RETENCION IVA SERVICIO 20%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.purchaseiva6"/>
+            <field name="tax_id" ref="l10n_ec_acc.retpurchaseiva2"/>
+        </record>
+        <record id="rule_calc_p_5" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_2" />
+            <field name="name">RETENCION IVA SERVICIO 70%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.purchaseiva6"/>
+            <field name="tax_id" ref="l10n_ec_acc.retpurchaseiva4"/>
+        </record>
+        <record id="rule_calc_p_6" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_2" />
+            <field name="name">RETENCION IVA SERVICIO 100%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.purchaseiva6"/>
+            <field name="tax_id" ref="l10n_ec_acc.retpurchaseiva5"/>
+        </record>
+        <record id="rule_calc_p_7" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_2" />
+            <field name="name">RETENCION LIQUIDACION DE COMPRA 100%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.purchaseiva6"/>
+            <field name="tax_id" ref="l10n_ec_acc.retpurchaseiva5"/>
+        </record>
+        <record id="rule_calc_p_8" model="withholding.calc">
+            <field name="withholding_id" ref="type_wh_2" />
+            <field name="name">RETENCION HONORARIOS PROFESIONALES 100%</field>
+            <field name="base_type">T</field>
+            <field name="tax_base_id" ref="l10n_ec_acc.purchaseiva6"/>
+            <field name="tax_id" ref="l10n_ec_acc.retpurchaseiva5"/>
+        </record>
+<!-- Rule -->
+            <record id="rule_1" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_1" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Contribuyente / Contribuyente</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_04"/>
+            </record>
+
+            <record id="rule_2" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_2" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Exportador / Contribuyente </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_04"/>
+            </record>
+
+            <record id="rule_3" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_2" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Exportador / P Natural </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_4" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_2" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Exportador / P Natural </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_5" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_2" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Exportador / Sociedad </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_6" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_2" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Exportador / P Natural Obligada </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_7" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_3" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Contribuyente / Sociedad </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_8" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_3" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Contribuyente / P Natural Obligada </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_9" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_3" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Contribuyente / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_10" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_3" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sector Publico / Sociedad </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_11" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_3" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sector Publico / P Natural Obligada</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_12" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_3" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sector Publico / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_13" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_3" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Seguro / Sociedad</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_14" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_3" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Seguro / P Natural  Obligada</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_15" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_3" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Seguro / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_16" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_4" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Contribuyente / Contribuyente </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_04"/>
+            </record>
+
+            <record id="rule_17" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_5" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Contribuyente / Sociedad </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_18" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_5" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Contribuyente / P Natural Obligada </field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_19" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_5" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Contribuyente / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_20" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_5" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sector Publico / Sociedad</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_21" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_5" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sector Publico / P Natural Obligada</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_22" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_5" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sector Publico / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_23" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_5" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Seguro / Sociedad</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+
+            <record id="rule_24" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_5" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Seguro / P Natural Obligada</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+
+            <record id="rule_25" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_5" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Seguro / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_26" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_5" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sociedad / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_02"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_27" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_5" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">P Natural Obligada / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_03"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_28" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_3" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">P Natural Obligada / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_03"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_29" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_6" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Exportador / Contribuyente</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_04"/>
+            </record>
+            <record id="rule_30" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_6" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Exportador / Sociedad</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_02"/>
+            </record>
+            <record id="rule_31" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_6" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Exportador / P Natural Obligado</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_03"/>
+            </record>
+            <record id="rule_32" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_6" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Exportador / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_33" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Contribuyente / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_34" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sector Publica / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_35" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Seguro / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_36" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Exportador / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_37" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sociedad / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_02"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_38" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">P Natural Obligada / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_03"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_39" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">P Natural / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_01"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_40" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Contribuyente / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_41" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sector Publica / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_42" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Seguro / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_43" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Exportador / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_44" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sociedad / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_02"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_45" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_7" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">P Natural Obligada / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_03"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+            <record id="rule_46" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_8" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Contribuyente / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_04"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_47" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_8" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sector Publica / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_06"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_48" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_8" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Seguro / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_11"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_49" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_8" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Exportador / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_12"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_50" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_8" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">Sociedad / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_02"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+            <record id="rule_51" model="withholding.rules">
+                <field name="withholding_calc_id" ref="rule_calc_p_8" />
+                <field name="withholding_id" ref="type_wh_2" />
+                <field name="name">P Natural Obligada / P Natural</field>
+                <field name="journal_id" ref="account_journal_1"/>
+                <field name="tax_payer_company"	ref="l10n_ec_par.tax_id_type_03"/>
+                <field name="tax_payer_partner" ref="l10n_ec_par.tax_id_type_01"/>
+            </record>
+
+    </data>
+</odoo>

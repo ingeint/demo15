@@ -1,0 +1,9 @@
+id,name,sequence,is_vat,code
+l10n_latam_base.it_vat,Legal,80,TRUE,J
+l10n_latam_base.it_pass,Natural Person,90,,V
+l10n_latam_base.it_fid,Foreign,100,,E
+l10n_latam_base.it_J,Government,110,,G
+l10n_latam_base.it_V,Foreign Supplier,120,,Z
+l10n_latam_base.it_C,Communal Council,130,,C
+
+

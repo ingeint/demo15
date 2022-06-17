@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_company_form_inherit_with">
+        <field name="name">res.company.with.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <field name="vat" position="after">
+                <field name="ciiu_company" options="{'no_create': True}"/>
+            </field>
+        </field>
+    </record>
+</odoo>
+

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="category_1" model="withholding.category">
+            <field name="code">304</field>
+            <field name="name">304 Servicios predomina el intelecto 8%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_2" model="withholding.category">
+            <field name="code">307</field>
+            <field name="name">307 Servicios predomina la mano de obra 2%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_3" model="withholding.category">
+            <field name="code">308</field>
+            <field name="name">308 Servicios entre sociedades 2%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_4" model="withholding.category">
+            <field name="code">309</field>
+            <field name="name">309 Servicios publicidad y comunicación 1%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_5" model="withholding.category">
+            <field name="code">310</field>
+            <field name="name">310 Transp priv pasajeros o serv público o priv de carga 1%</field>
+            <field name="description">Transporte privado de pasajeros o servicio público o privado de carga</field>
+        </record>
+        <record id="category_6" model="withholding.category">
+            <field name="code">312</field>
+            <field name="name">312 Transferencia de bienes mueble de naturaleza corporal 1%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_7" model="withholding.category">
+            <field name="code">319</field>
+            <field name="name">319 Arrendamiento mercantil 1%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_8" model="withholding.category">
+            <field name="code">320</field>
+            <field name="name">320 Arrendamiento bienes inmuebles 8%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_9" model="withholding.category">
+            <field name="code">322</field>
+            <field name="name">322 Srguros y reaseguros  (primas y cesi) (10% prim fact) 1%</field>
+            <field name="description">Seguros y reaseguros (primas y cesiones) (10% del valor de las primas facturadas)</field>
+        </record>
+        <record id="category_10" model="withholding.category">
+            <field name="code">323</field>
+            <field name="name">323 Por rendimientos financieros (No aplica para IFIs) 2%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_11" model="withholding.category">
+            <field name="code">325</field>
+            <field name="name">325 Por loterías, rifas, apuestas y similares 15%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_12" model="withholding.category">
+            <field name="code">327</field>
+            <field name="name">327 Por venta de combustibles a comercializadoras  2/mil</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_13" model="withholding.category">
+            <field name="code">328</field>
+            <field name="name">328 Por venta de combustibles a distribuidores 3/mil</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_14" model="withholding.category">
+            <field name="code">332</field>
+            <field name="name">332 Otras compras de bienes y servicios no sujetas a ret 0%</field>
+            <field name="description">Otras compras de bienes y servicios no sujetas a retención</field>
+        </record>
+        <record id="category_15" model="withholding.category">
+            <field name="code">333</field>
+            <field name="name">333 Convenio de Débito o Recaudación 0%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_16" model="withholding.category">
+            <field name="code">334</field>
+            <field name="name">334 Por compras con tarjeta de crédito 0%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_17" model="withholding.category">
+            <field name="code">340</field>
+            <field name="name">340 Otras retenciones aplicables el 1%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_18" model="withholding.category">
+            <field name="code">341</field>
+            <field name="name">341 Otras retenciones aplicables el 2%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_19" model="withholding.category">
+            <field name="code">343</field>
+            <field name="name">343 Otras retenciones aplicables el 25%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_20" model="withholding.category">
+            <field name="code">403</field>
+            <field name="name">403  Sin convenio de doble trib int y costos finan 5% - 25%</field>
+            <field name="description">Sin convenio de doble tributación intereses y costos financieros por financiamiento de proveedores externos (si el valor se encuentra dentro de la tasa activa maxima referencial del BCE se retiene el 5%, si excede el valor se retiene el 25%)</field>
+        </record>
+        <record id="category_21" model="withholding.category">
+            <field name="code">405</field>
+            <field name="name">405 Sin convenio de doble trib interes cred exter  5% - 25%</field>
+            <field name="description">Sin convenio de doble tributación intereses de créditos externos registrados en el BCE (si el valor se encuentra dentro de la tasa activa maxima referencial del BCE se retiene el 5%, si excede el valor se retiene el 25%)</field>
+        </record>
+        <record id="category_22" model="withholding.category">
+            <field name="code">421</field>
+            <field name="name">421 Sin convenio de doble tributación porotros conceptos 25%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_23" model="withholding.category">
+            <field name="code">427</field>
+            <field name="name">427 Pagos al exterior no sujetos a retención 0%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_24" model="withholding.category">
+            <field name="code">401</field>
+            <field name="name">401 Con convenio de doble tributación %depende</field>
+            <field name="description">Porcentaje dependerá del convenio</field>
+        </record>
+        <record id="category_25" model="withholding.category">
+            <field name="code">303</field>
+            <field name="name">303 Honorarios profesionales y dietas 10%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_26" model="withholding.category">
+            <field name="code">3440</field>
+            <field name="name">3440 Otras retenciones aplicables el 2.75%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_27" model="withholding.category">
+            <field name="code">304B</field>
+            <field name="name">304B Pagos a notarios y registradores de la propiedad  8%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_28" model="withholding.category">
+            <field name="code">422</field>
+            <field name="name">422 Pago al exterior- Otros conceptos de ingresos gravad 22%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_29" model="withholding.category">
+            <field name="code">422</field>
+            <field name="name">422 Pago al exterior- Otros conceptos de ingresos gravad 10%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_30" model="withholding.category">
+            <field name="code">345</field>
+            <field name="name">345  Otras retenciones aplicables el 8%</field>
+        </record>
+        <record id="category_31" model="withholding.category">
+            <field name="code">332I</field>
+            <field name="name">332I Pago a través de convenio de debito (Clientes IFIS) 0%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_32" model="withholding.category">
+            <field name="code">351</field>
+            <field name="name">351 Retenciones Regimen Microempresa 1,75%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_33" model="withholding.category">
+            <field name="code">314</field>
+            <field name="name">314 Regalías por concepto de franquicias de acuerdo a Ley de Propiedad Intelectual 8%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_34" model="withholding.category">
+            <field name="code">312A</field>
+            <field name="name">312A Compra de bienes de origen agrícola 1%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_35" model="withholding.category">
+            <field name="code">311</field>
+            <field name="name">311 Pagos a través de liquidación de compra 2%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_36" model="withholding.category">
+            <field name="code">344A</field>
+            <field name="name">344A Pago local tarjeta de crédito/débito reportada por la Emisora de tarjeta de crédito 2%</field>
+            <field name="description"></field>
+        </record>
+        <record id="category_37" model="withholding.category">
+            <field name="code">332G</field>
+            <field name="name">332G Pagos con tarjeta de crédito 0%</field>
+            <field name="description"></field>
+        </record>
+    </data>
+</odoo>

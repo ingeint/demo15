@@ -1,0 +1,4 @@
+id,name,code
+tax_payer_OT,Ordinary Taxpayers,OT
+tax_payer_FT,Formal Taxpayers,FT
+tax_payer_ST,Special Taxpayers,ST

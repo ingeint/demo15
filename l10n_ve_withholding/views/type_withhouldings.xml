@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="calc_withholding_form_view" model="ir.ui.view">
+            <field name="name">calc_withholding.form</field>
+            <field name="model">withholding.calc</field>
+            <field name="arch" type="xml">
+                <form string="Withholding Calculation">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="company_id" invisible="1"/>
+                                 <field name="withholding_id" invisible="1"/>
+                                <field name="name" required="1"/>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                        <group string="Config Calculation">
+                            <group>
+                                <field name="use_company_taxpayer_type" invisible="1"/>
+                                <field name="use_company_ciiu" invisible="1"/>
+                                <field name="use_company_city" invisible="1"/>
+                                <field name="use_withholding_Category" invisible="1"/>
+                                <field name="base_type" required="1"/>
+                                <field name="tax_base_id"
+                                       string="Tax Base"
+                                       options="{'no_create': True}"
+                                       attrs="{'invisible':[('base_type', '=', 'L')], 'required':[('base_type', '=', 'T')]}"/>
+                            </group>
+                            <group>
+                                <field name="use_part_taxpayer_type" invisible="1"/>
+                                <field name="use_part_ciiu" invisible="1"/>
+                                <field name="use_part_city" invisible="1"/>
+                                <field name="use_product_tax_category" invisible="1"/>
+                                <field name="tax_id" required="1" options="{'no_create': True}"/>
+                                <field name="subtracting" required="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Withholding Calculation" name="cal_w_page">
+                               <field name="rules_ids" context="{'default_withholding_id': withholding_id,
+                                                                 'default_use_company_taxpayer_type': use_company_taxpayer_type,
+                                                                 'default_use_company_ciiu': use_company_ciiu,
+                                                                 'default_use_company_city': use_company_city,
+                                                                 'default_use_withholding_Category': use_withholding_Category,
+                                                                 'default_use_part_taxpayer_type': use_part_taxpayer_type,
+                                                                 'default_use_part_ciiu': use_part_ciiu,
+                                                                 'default_use_part_city': use_part_city,
+                                                                 'default_use_product_tax_category': use_product_tax_category,
+                                                                 'default_company_id': company_id,
+                                                                 'withholding_calc_id': id}" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="rule_withholding_form_view" model="ir.ui.view">
+            <field name="name">rule_withholding.form</field>
+            <field name="model">withholding.rules</field>
+            <field name="arch" type="xml">
+                <form string="Withholding Rules">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="company_id" invisible="1"/>
+                                <field name="withholding_id" invisible="1"/>
+                                <field name="name" required="1"/>
+                            </group>
+                        </group>
+                        <group string="Config Rules">
+                            <group>
+                                <field name="use_company_taxpayer_type" invisible="1"/>
+                                <field name="use_company_ciiu" invisible="1"/>
+                                <field name="use_company_city" invisible="1"/>
+                                <field name="use_withholding_Category" invisible="1"/>
+                                <field name="tax_payer_company" attrs="{'invisible':[['use_company_taxpayer_type', '=', False]]}"/>
+                                <field name="ciiu_company" attrs="{'invisible':[['use_company_ciiu', '=', False]]}"/>
+                                <field name="city_company" attrs="{'invisible':[['use_company_city', '=', False]]}"/>
+                                <field name="withholding_cate_product" attrs="{'invisible':[['use_withholding_Category', '=', False]]}"/>
+                            </group>
+                            <group>
+                                <field name="use_part_taxpayer_type" invisible="1"/>
+                                <field name="use_part_ciiu" invisible="1"/>
+                                <field name="use_part_city" invisible="1"/>
+                                <field name="use_product_tax_category" invisible="1"/>
+                                <field name="tax_payer_partner" attrs="{'invisible':[['use_part_taxpayer_type', '=', False]]}"/>
+                                <field name="ciiu_partner" attrs="{'invisible':[['use_part_ciiu', '=', False]]}"/>
+                                <field name="city_partner" attrs="{'invisible':[['use_part_city', '=', False]]}"/>
+                                <field name="tax_group_id" attrs="{'invisible':[['use_product_tax_category', '=', False]]}"/>
+                            </group>
+                            <group string="Withholding Calculation">
+                                <field name="withholding_calc_id" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="type_withholding_form_view" model="ir.ui.view">
+            <field name="name">type_withholding.form</field>
+            <field name="model">withholding.type</field>
+            <field name="arch" type="xml">
+                <form string="Withholding Type">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="company_id"/>
+                            <h1>
+                                <field name="company_id" placeholder="Company"  options="{'no_create': True}" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="description"/>
+                                <field name="journal_id" required="1"/>
+                                <field name="is_sale"  widget="boolean_toggle" string="Is sale transaction"/>
+                            </group>
+                        </group>
+                        <group string="Config Rules">
+                            <group>
+                                <field name="use_company_taxpayer_type"  widget="boolean_toggle"/>
+                                <field name="use_company_ciiu"  widget="boolean_toggle"/>
+                                <field name="use_company_city"  widget="boolean_toggle"/>
+                                <field name="use_withholding_Category"  widget="boolean_toggle"/>
+                            </group>
+                            <group>
+                                <field name="use_part_taxpayer_type"  widget="boolean_toggle"/>
+                                <field name="use_part_ciiu"  widget="boolean_toggle"/>
+                                <field name="use_part_city"  widget="boolean_toggle"/>
+                                <field name="use_product_tax_category" widget="boolean_toggle"/>
+                                <field name="use_sequence"  widget="boolean_toggle"/>
+                            </group>
+                        </group>
+                        <group>
+                            <notebook>
+                                <page string="Withholding Calculation" name="cal_w_page">
+                                   <field name="rules_calc_ids" context="{'default_withholding_id': id,
+                                                                           'default_use_company_taxpayer_type': use_company_taxpayer_type,
+                                                                           'default_use_company_ciiu': use_company_ciiu,
+                                                                           'default_use_company_city': use_company_city,
+                                                                           'default_use_withholding_Category': use_withholding_Category,
+                                                                           'default_use_part_taxpayer_type': use_part_taxpayer_type,
+                                                                           'default_use_part_ciiu': use_part_ciiu,
+                                                                           'default_use_part_city': use_part_city,
+                                                                           'default_use_product_tax_category': use_product_tax_category,
+                                                                           'default_company_id': company_id}"  />
+                                </page>
+                             </notebook>
+                            <notebook>
+                                <page string="Withholding Rules" name="rule_w_page">
+                                   <field name="rules_rules_ids" context="{'default_withholding_id': id,
+                                                                           'default_use_company_taxpayer_type': use_company_taxpayer_type,
+                                                                           'default_use_company_ciiu': use_company_ciiu,
+                                                                           'default_use_company_city': use_company_city,
+                                                                           'default_use_withholding_Category': use_withholding_Category,
+                                                                           'default_use_part_taxpayer_type': use_part_taxpayer_type,
+                                                                           'default_use_part_ciiu': use_part_ciiu,
+                                                                           'default_use_part_city': use_part_city,
+                                                                           'default_use_product_tax_category': use_product_tax_category,
+                                                                           'default_company_id': company_id}" readonly="1"/>
+                                </page>
+                             </notebook>
+                            <notebook>
+                                <page string="Withholding sequences" name="sequence_w_page">
+                                   <field name="withholding_sequence_ids" context="{'default_withholding_id': id,
+                                                                           'default_company_id': company_id}"/>
+                                </page>
+                             </notebook>
+                        </group>
+                    </sheet>
+                    <div class="o_attachment_preview"/>
+                    <!-- Chatter -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="type_withholding_tree_view" model="ir.ui.view">
+            <field name="name">type_withholding.tree</field>
+            <field name="model">withholding.type</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+                    <field name="company_id"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="is_sale"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="type_withholding_act_window" model="ir.actions.act_window">
+            <field name="name">Withholding Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">withholding.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create your types of retentions here.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

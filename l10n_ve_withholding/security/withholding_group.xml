@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+            <record model="ir.module.category" id="module_withholding_odoo">
+                <field name="name">Withholding Odoo</field>
+                <field name="description">Withholding Odoo</field>
+                <field name="sequence">25</field>
+            </record>
+            <record id="withholding_odoo_group" model="res.groups">
+                <field name="name">Withholding Odoo Group</field>
+                <field name="comment">Withholding Odoo Group</field>
+                <field name="category_id" ref="module_withholding_odoo"/>
+            </record>
+            <record id="withholding_odoo_group_user" model="res.groups">
+                <field name="name">Withholding Odoo Group User</field>
+                <field name="comment">Withholding Odoo Group User</field>
+                <field name="category_id" ref="module_withholding_odoo"/>
+            </record>
+
+            <record model="ir.rule" id="type_rule">
+                <field name="name">type rule multi-company</field>
+                <field name="model_id" search="[('model','=','withholding.type')]" model="ir.model"/>
+                <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            </record>
+
+    </data>
+</odoo>

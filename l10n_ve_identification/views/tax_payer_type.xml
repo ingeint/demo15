@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="tax_payer_form_view" model="ir.ui.view">
+            <field name="name">ingeint_tax_payer.form</field>
+            <field name="model">tax.payer.type</field>
+            <field name="arch" type="xml">
+                <form string="Tax Payer Type">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Title"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ingeint_tax_payer_tree_view" model="ir.ui.view">
+            <field name="name">ingeint_tax_payer.tree</field>
+            <field name="model">tax.payer.type</field>
+            <field name="arch" type="xml">
+                <tree string="Tax Payer Type">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="ingeint_tax_payer_act_window" model="ir.actions.act_window">
+            <field name="name">Tax Payer Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tax.payer.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create a new Tax Payer type
+                </p>
+            </field>
+        </record>
+
+        <menuitem action="ingeint_tax_payer_act_window"
+              id="menu_tax_payer_type"
+              parent="contacts.res_partner_menu_config"/>
+    </data>
+</odoo>
